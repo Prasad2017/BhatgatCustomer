@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: me.henrytao:smooth-app-bar-layout:24.1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f796d331458960dd3c8ec68a0de187f/jetified-smooth-app-bar-layout-24.1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f796d331458960dd3c8ec68a0de187f/jetified-smooth-app-bar-layout-24.1.0.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.henrytao/smooth-app-bar-layout/24.1.0.0/b4cfe5484821665f8a977acb9b5739b0f563d692/smooth-app-bar-layout-24.1.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.henrytao/smooth-app-bar-layout/24.1.0.0/f1d29f9281c506a19b20390aeba514c962097fdb/smooth-app-bar-layout-24.1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

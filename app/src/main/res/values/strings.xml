@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Bachatgat App</string>
+
+    <string name="secure_payment_text"><![CDATA[Safe and Secure Payments. 100% Original products]]></string>
+    <string name="emailId"></string>
+    <string name="err_msg_email">Please enter a valid email id</string>
+    <string name="contactNo">0123456789</string>
+    <string name="targetProductImageWidth">300</string>
+    <string name="targetProductImageHeight">250</string>
+    <string name="targetProductImageWidth1">100</string>
+    <string name="cartImageWidth">100</string>
+    <string name="fullImageWidth">500</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_your_an_otp_and_we_will_verify_an_otp_to_change_the_password">Enter your an OTP and we will verify an OTP to change the password</string>
+    <string name="you_are_not_a_member_register">You are not a member? <b><font fgcolor='#3CDA85'>Register.</font></b></string>
+
+
+    <!---Verification OTP..... -->
+    <string name="title_activity_basic_details_update">BasicDetailsUpdate</string>
+    <string name="sendotp_key">217749A4rjW4ii5b0cf071</string>
+    <string name="enterphonenumber">Enter your phone number</string>
+    <string name="selectcountry">Select country</string>
+    <string name="sending_sms">We\'re sending Bachatgat otp sms to</string>
+    <string name="inprogress">Verification in\nprogress</string>
+    <string name="verified">Verification successful</string>
+    <string name="failed">Verification failed</string>
+    <string name="entercode">Please enter the code you received</string>
+</resources>

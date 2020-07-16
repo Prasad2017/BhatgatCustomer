@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hashexclude.instamojo_sdk_android">
+
+    <application android:label="@string/app_name">
+        <activity android:name=".activities.PaymentActivity"/>
+    </application>
+
+</manifest>

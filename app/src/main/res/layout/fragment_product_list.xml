@@ -1,0 +1,95 @@
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/simpleSwipeRefreshLayout"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context=".Fragment.Home">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#fbd3d3">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="70dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="66dp"
+                            android:src="@drawable/filter"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="66dp" />
+
+                        <TextView
+                            android:layout_width="51dp"
+                            android:id="@+id/filter"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="104dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Filter"
+                            android:textColor="#000"
+                            android:textSize="16sp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="104dp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="70dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginEnd="111dp"
+                            android:src="@drawable/sort"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="111dp" />
+
+                        <TextView
+                            android:layout_width="53dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="45dp"
+                            android:padding="5dp"
+                            android:id="@+id/sort"
+                            android:text="Sort"
+                            android:textColor="#000"
+                            android:textSize="16sp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="45dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Life Time\nExchange"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:visibility="gone"
+                            android:layout_marginRight="15dp"
+                            android:textSize="14sp"/>
+
+                </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"
+            android:layout_below="@+id/sortbc" />
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <include layout="@layout/bottom_sheet_content" />
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
