@@ -8,23 +8,27 @@
     android:id="@+id/forgotLayout"
     android:background="@drawable/loginbackground">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:padding="20dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logo"/>
 
             <LinearLayout
                 android:id="@+id/sendotpLayout"
@@ -50,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/us"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:textColorHint="@color/light_black">
 
                     <EditText
@@ -60,7 +64,7 @@
                         android:digits="0123456789"
                         android:drawableLeft="@drawable/contact"
                         android:drawablePadding="10dp"
-                        android:drawableTint="@color/light_black"
+                        android:drawableTint="@color/red"
                         android:hint="Mobile Number *"
                         android:imeOptions="actionDone"
                         android:inputType="numberDecimal"

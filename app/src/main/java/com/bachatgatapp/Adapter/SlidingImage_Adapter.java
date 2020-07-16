@@ -44,12 +44,12 @@ public class SlidingImage_Adapter extends PagerAdapter {
         View itemview = inflater.inflate(R.layout.custom_pager, view, false);
        // assert imageLayout != null;
         ImageView imageView = itemview.findViewById(R.id.imageView);
-        String imag1 = "http://prabhagmaza.com/Customer.in/"+arrayList.get(position).getImage();
+        String imag1 = "http://logic-fort.com/Customer.in/"+arrayList.get(position).getImage();
         Log.e("imag1==",""+imag1);
         Log.e("arraylist==",""+arrayList);
         try {
             Picasso.with(context)
-                    .load("http://prabhagmaza.com/Customer.in/"+arrayList.get(position).getImage())
+                    .load("http://logic-fort.com/Customer.in/"+arrayList.get(position).getImage())
                     .placeholder(R.drawable.defaultimage)
                     .into(imageView);
             view.addView(itemview);

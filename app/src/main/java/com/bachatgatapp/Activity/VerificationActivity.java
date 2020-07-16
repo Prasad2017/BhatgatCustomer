@@ -46,7 +46,7 @@ public class VerificationActivity extends AppCompatActivity implements
     SharedPreferences pref;
     String email,str_edt_get_otp,get_number;
     SharedPreferences.Editor editor;
-    public static final String OTP="http://prabhagmaza.com/androidApp/Customer/withoutlogin.php";
+    public static final String OTP="http://logic-fort.com/androidApp/Customer/withoutlogin.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

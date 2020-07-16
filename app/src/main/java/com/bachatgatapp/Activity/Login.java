@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
     @BindView(R.id.loginLinearLayout)
     LinearLayout loginLinearLayout;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String loginurl = "http://prabhagmaza.com/androidApp/Customer/login.php";
+    public static String loginurl = "http://logic-fort.com/androidApp/Customer/login.php";
     SharedPreferences pref;
     String email,str_edt_get_otp,get_number;
     SharedPreferences.Editor editor;

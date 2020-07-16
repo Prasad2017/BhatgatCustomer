@@ -61,7 +61,7 @@ public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
     // load image into imageview using glide
     try {
         Picasso.with(context)
-                .load("http://prabhagmaza.com/Customer.in/" + productData.product_image1)
+                .load("http://logic-fort.com/Customer.in/" + productData.product_image1)
                 .placeholder(R.drawable.defaultimage)
                 .into(myHolder.productimage);
     } catch (Exception e) {

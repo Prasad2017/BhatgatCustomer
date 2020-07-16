@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -50,6 +53,7 @@ public class AppSignatureHelper extends ContextWrapper {
     return appCodes;
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.KITKAT)
   private static String hash(String packageName, String signature) {
     String appInfo = packageName + " " + signature;
     try {

@@ -58,7 +58,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         // load image into imageview using glide
         try {
             Picasso.with(context)
-                    .load("http://prabhagmaza.com/Customer.in/"+current.catImage)
+                    .load("http://logic-fort.com/Customer.in/"+current.catImage)
                     .placeholder(R.drawable.defaultimage)
                     .into(myHolder.thumbnail);
         }catch (Exception e){

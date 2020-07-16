@@ -100,10 +100,10 @@ public class BuyNow extends Fragment {
     CardView offercard;
     ArrayList<String> sizeList = new ArrayList<>();
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String profileurl = "http://prabhagmaza.com/androidApp/Customer/getprofile.php";
-    public static String finalorder = "http://prabhagmaza.com/androidApp/Customer/Final_order.php";
-    public static String offerurl = "http://prabhagmaza.com/androidApp/Customer/GetCoupon.php";
-    public static String messageurl = "http://prabhagmaza.com/androidApp/Customer/Customer_Delivery/send_msg_on_dispatch.php";
+    public static String profileurl = "http://logic-fort.com/androidApp/Customer/getprofile.php";
+    public static String finalorder = "http://logic-fort.com/androidApp/Customer/Final_order.php";
+    public static String offerurl = "http://logic-fort.com/androidApp/Customer/GetCoupon.php";
+    public static String messageurl = "http://logic-fort.com/androidApp/Customer/Customer_Delivery/send_msg_on_dispatch.php";
     //Your authentication key
     String authkey = "217749A4rjW4ii5b0cf071";
     //Sender ID,While using route4 sender id should be 6 characters long.

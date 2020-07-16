@@ -26,6 +26,7 @@ import com.bachatgatapp.Extra.Common;
 import com.bachatgatapp.helper.AppSignatureHelper;
 import com.bachatgatapp.interfaces.OtpReceivedInterface;
 import com.bachatgatapp.receiver.SmsBroadcastReceiver;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.phone.SmsRetriever;
 import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
 import com.google.android.gms.common.ConnectionResult;
@@ -77,7 +78,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    public static final String OTPURL="http://prabhagmaza.com/androidApp/Customer/withoutlogin.php";
+    public static final String OTPURL="http://logic-fort.com/androidApp/Customer/withoutlogin.php";
 
 
 
@@ -90,12 +91,12 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
         // init broadcast receiver
         mSmsBroadcastReceiver = new SmsBroadcastReceiver();
 
-        /*//set google api client for hint request
+        //set google api client for hint request
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.CREDENTIALS_API)
-                .build();*/
+                .build();
 
         mSmsBroadcastReceiver.setOnOtpListeners(this);
         IntentFilter intentFilter = new IntentFilter();
@@ -135,7 +136,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
 
     }
 
-    @OnClick({R.id.submit, R.id.verify})
+    @OnClick({R.id.submit, R.id.verify, R.id.signIn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.submit:
@@ -144,6 +145,11 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
                 } else {
                     Toast.makeText(LoginOtp.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
                 }
+                break;
+
+            case R.id.signIn:
+                Intent intent = new Intent(LoginOtp.this, SignUp.class);
+                startActivity(intent);
                 break;
 
             case R.id.verify:
@@ -157,7 +163,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
 
                         final ProgressDialog pDialog = new ProgressDialog(LoginOtp.this);
                         pDialog.setMessage("Loading...");
-                        pDialog.setTitle("OTP is sending");
+                        pDialog.setTitle("Account is verifying");
                         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                         pDialog.show();
                         pDialog.setCancelable(false);
@@ -227,6 +233,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
         OTP= new DecimalFormat("0000").format(new Random().nextInt(9999));
         String message = "<#> Your Bachatgat App verification OTP code is "+ OTP +". Please DO NOT share this OTP with anyone.\n" + HASH_KEY;
         String encoded_message= URLEncoder.encode(message);
+        Log.e("Message", ""+encoded_message);
 
         final ProgressDialog progressDialog = new ProgressDialog(LoginOtp.this);
         progressDialog.setMessage("Loading...");
@@ -235,23 +242,26 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
         progressDialog.show();
         progressDialog.setCancelable(false);
 
-        APInterface apiInterface = APIClient.getClient().create(APInterface.class);
-        Call<JSONObject> call = apiInterface.sendSMS(mobileNumber, encoded_message);
-        call.enqueue(new Callback<JSONObject>() {
+        RequestParams requestParams = new RequestParams();
+        requestParams.put("number", mobileNumber);
+        requestParams.put("message", encoded_message);
+
+        asyncHttpClient.get("http://logic-fort.com/androidApp/Supplier/sendSMS.php", requestParams, new AsyncHttpResponseHandler() {
             @Override
-            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+
+                String s = new String(responseBody);
 
                 try {
-                    if (response.body().getString("success").equals("1"))
-                    {
+                    JSONObject jsonObject= new JSONObject(s);
+                    if (jsonObject.getString("success").equals("1")){
                         progressDialog.dismiss();
 
                         linearLayouts.get(0).setVisibility(View.GONE);
                         linearLayouts.get(1).setVisibility(View.VISIBLE);
                         Toast.makeText(LoginOtp.this, "OTP sent successfully", Toast.LENGTH_SHORT).show();
                         startSMSListener();
-
-                    } else  {
+                    } else {
                         progressDialog.dismiss();
 
                         linearLayouts.get(1).setVisibility(View.GONE);
@@ -265,14 +275,15 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
             }
 
             @Override
-            public void onFailure(Call<JSONObject> call, Throwable t) {
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 progressDialog.dismiss();
 
                 linearLayouts.get(1).setVisibility(View.GONE);
                 linearLayouts.get(0).setVisibility(View.VISIBLE);
-                Log.e("Error", ""+t.getMessage());
             }
         });
+
+
 
     }
 
