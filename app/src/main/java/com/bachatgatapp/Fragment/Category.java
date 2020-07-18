@@ -89,8 +89,8 @@ public class Category extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String s = new String(responseBody);
-                try {
-                    JSONObject jsonObject = new JSONObject(s);
+               try {
+                    JSONObject jsonObject = new JSONObject(s.replace("\\\"","'"));
                     JSONArray jsonArray = jsonObject.getJSONArray("success");
 
                     for (int i=0;i<jsonArray.length();i++){
@@ -102,7 +102,6 @@ public class Category extends Fragment {
                         categoryData.catName =jsonObject.getString("category_name");
                         categoryData.catImage =jsonObject.getString("category_image");
                         categoryData.categary_id =jsonObject.getString("category_pk");
-                        String Number_of_product =jsonObject.getString("Number_of_product");
 
                         data.add(categoryData);
 

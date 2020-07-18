@@ -101,7 +101,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             holder.quantity.setText(orders.getQty());
             try {
                 Picasso.with(context)
-                        .load("http://logic-fort.com/Customer.in/" + orders.getProduct_image1())
+                        .load("http://logic-fort.com/bachatgat/" + orders.getProduct_image1())
                         .placeholder(R.drawable.defaultimage)
                         .into(holder.productImage1);
             } catch (Exception e) {

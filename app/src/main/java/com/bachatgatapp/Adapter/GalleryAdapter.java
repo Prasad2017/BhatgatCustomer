@@ -58,7 +58,7 @@ import java.util.List;
             // load image into imageview using glide
             try {
                 Picasso.with(context)
-                        .load("http://logic-fort.com/Customer.in/"+current.catImage)
+                        .load("http://logic-fort.com/Customer/"+current.catImage)
                         .placeholder(R.drawable.defaultimage)
                         .into(myHolder.thumbnail);
             }catch (Exception e){

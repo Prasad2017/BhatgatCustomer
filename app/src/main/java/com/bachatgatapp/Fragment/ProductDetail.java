@@ -507,7 +507,7 @@ public class ProductDetail  extends Fragment {
                         Log.e("string image",""+string);
                         try {
                             Picasso.with(getActivity())
-                                    .load("http://logic-fort.com/Customer.in/" + string)
+                                    .load("http://logic-fort.com/bachatgat/" + string)
                                     .placeholder(R.drawable.defaultimage)
                                     .into(noImageAdded);
                         } catch (Exception e) {

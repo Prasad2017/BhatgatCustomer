@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.loopj.android.http.AsyncHttpClient;
@@ -261,7 +262,7 @@ public class ProductList extends Fragment {
                     public void onClick(View v) {
 
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                        sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                        sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                         dialog.dismiss();
                     }
                 });
@@ -542,7 +543,6 @@ public class ProductList extends Fragment {
         cart_id=sharedPreferences.getString("cart_id","");
         Log.e("cart",""+cart_id);
 
-
         MainPage.progressBar.setVisibility(View.VISIBLE);
         MainPage.cartCount.setVisibility(View.GONE);
         RequestParams requestParams = new RequestParams();
@@ -625,7 +625,6 @@ public class ProductList extends Fragment {
                         productData.product_description = jsonObject.getString("product_description");
                         productData.product_specification = jsonObject.getString("product_specification");
                         productData.product_price = jsonObject.getString("product_price");
-                        Log.e("price==",""+productData.product_price);
                         productData.product_discount = jsonObject.getString("product_discount");
                         productData.product_final_price = jsonObject.getString("product_final_price");
                         productData.product_actual_stock = jsonObject.getString("product_actual_stock");
