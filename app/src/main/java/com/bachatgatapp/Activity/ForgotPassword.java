@@ -30,7 +30,7 @@ public class ForgotPassword extends AppCompatActivity {
     @BindView(R.id.emailId)
      EditText editTexts;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String forgot = "http://logic-fort.com/androidApp/Customer/forgotpassword.php";
+    public static String forgot = "http://graminvikreta.com/androidApp/Customer/forgotpassword.php";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

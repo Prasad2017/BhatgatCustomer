@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
     @BindView(R.id.loginLinearLayout)
     LinearLayout loginLinearLayout;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String loginurl = "http://logic-fort.com/androidApp/Customer/login.php";
+    public static String loginurl = "http://graminvikreta.com/androidApp/Customer/login.php";
     SharedPreferences pref;
     String email,str_edt_get_otp,get_number;
     SharedPreferences.Editor editor;
@@ -144,7 +144,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this," Success "+jsonObject.getString("message"),Toast.LENGTH_LONG).show();
                             pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
                             editor = pref.edit();
-                            editor.putString("AdminLogin","AdminLoginSuccesssful");
+                            editor.putString("AdminLogin","AdminLoginSuccessful");
                             editor.commit();
 
                             String id = jsonObject.getString("id");

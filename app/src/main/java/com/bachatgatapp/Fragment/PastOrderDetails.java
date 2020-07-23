@@ -78,11 +78,11 @@ public class PastOrderDetails extends Fragment {
     public static String productQuantity;
     @BindView(R.id.noImageAdded)
     ImageView noImageAdded;
-    public static String ProductdataURL="http://logic-fort.com/androidApp/Customer/Productdata.php";
-    public static String GetCartURL="http://logic-fort.com/androidApp/Customer/cartcount.php";
-    public static String ProductURL="http://logic-fort.com/androidApp/Customer/add_to_cart.php";
-    public static String ImagesUrl="http://logic-fort.com/androidApp/Customer/getProductImages.php";
-    public static String city="http://logic-fort.com/androidApp/Customer/product_quantity.php";
+    public static String ProductdataURL="http://graminvikreta.com/androidApp/Customer/Productdata.php";
+    public static String GetCartURL="http://graminvikreta.com/androidApp/Customer/cartcount.php";
+    public static String ProductURL="http://graminvikreta.com/androidApp/Customer/add_to_cart.php";
+    public static String ImagesUrl="http://graminvikreta.com/androidApp/Customer/getProductImages.php";
+    public static String city="http://graminvikreta.com/androidApp/Customer/product_quantity.php";
     String[] city_id_pk, city_name;
     String cityid,city_value;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();

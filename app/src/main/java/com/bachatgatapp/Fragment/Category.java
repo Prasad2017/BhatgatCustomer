@@ -46,7 +46,7 @@ public class Category extends Fragment {
     RecyclerView categoryRecyclerView;
     TextView sortbc;
     public static SwipeRefreshLayout swipeRefreshLayout;
-    public  static  String SubategoryURL = "http://logic-fort.com/androidApp/Customer/Category.php";
+    public  static  String SubategoryURL = "http://graminvikreta.com/androidApp/Customer/Category.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

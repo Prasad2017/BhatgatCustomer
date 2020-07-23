@@ -42,7 +42,7 @@ public class Change_Password extends Fragment {
     @BindView(R.id.changeLinearLayout)
     LinearLayout changeLinearLayout;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String passwordurl = "http://logic-fort.com/androidApp/Customer/change_password.php";
+    public static String passwordurl = "http://graminvikreta.com/androidApp/Customer/change_password.php";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

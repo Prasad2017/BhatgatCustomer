@@ -78,7 +78,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    public static final String OTPURL="http://logic-fort.com/androidApp/Customer/withoutlogin.php";
+    public static final String OTPURL="http://graminvikreta.com/androidApp/Customer/withoutlogin.php";
 
 
 
@@ -246,7 +246,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
         requestParams.put("number", mobileNumber);
         requestParams.put("message", encoded_message);
 
-        asyncHttpClient.get("http://logic-fort.com/androidApp/Supplier/sendSMS.php", requestParams, new AsyncHttpResponseHandler() {
+        asyncHttpClient.get("http://graminvikreta.com/androidApp/Supplier/sendSMS.php", requestParams, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 

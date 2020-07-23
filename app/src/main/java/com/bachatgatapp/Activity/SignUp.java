@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity {
     LinearLayout loginLinearLayout;
     TextView text;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String Signinurl = "http://logic-fort.com/androidApp/Customer/Registration.php";
+    public static String Signinurl = "http://graminvikreta.com/androidApp/Customer/Registration.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

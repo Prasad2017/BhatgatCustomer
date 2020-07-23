@@ -62,10 +62,10 @@ public class MyProfile extends Fragment {
     String cityid, stateid,state_value,city_value;
     SweetAlertDialog pDialog;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-    public static String profileurl = "http://logic-fort.com/androidApp/Customer/getprofile.php";
-    public static String updateurl = "http://logic-fort.com/androidApp/Customer/Update_profile.php";
-    public static final String city="http://logic-fort.com/androidApp/Customer/City.php";
-    public static final String stateurl="http://logic-fort.com/androidApp/Customer/State.php";
+    public static String profileurl = "http://graminvikreta.com/androidApp/Customer/getprofile.php";
+    public static String updateurl = "http://graminvikreta.com/androidApp/Customer/Update_profile.php";
+    public static final String city="http://graminvikreta.com/androidApp/Customer/City.php";
+    public static final String stateurl="http://graminvikreta.com/androidApp/Customer/State.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

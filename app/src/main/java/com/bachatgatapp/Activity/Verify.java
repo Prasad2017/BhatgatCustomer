@@ -62,7 +62,7 @@ public class Verify extends AppCompatActivity {
     public static final int RequestPermissionCode = 7;
     SweetAlertDialog pDialog;
     String email,str_edt_get_otp,get_number;
-    public static final String OTPURL="http://logic-fort.com/androidApp/Customer/withoutlogin.php";
+    public static final String OTPURL="http://graminvikreta.com/androidApp/Customer/withoutlogin.php";
     //Your authentication key
     String authkey = "17398A5t2BE8n5e3bf000P20";
     //Sender ID,While using route4 sender id should be 6 characters long.

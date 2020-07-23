@@ -80,7 +80,7 @@ public class MainPage extends AppCompatActivity {
     public static ProgressBar progressBar;
     TextView uname,uemail;
 
-    public static String GetCartURL="http://logic-fort.com/androidApp/Customer/cartcount.php";
+    public static String GetCartURL="http://graminvikreta.com/androidApp/Customer/cartcount.php";
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;

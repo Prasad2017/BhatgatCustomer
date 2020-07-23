@@ -49,7 +49,7 @@ public class PastOrder extends Fragment {
     double total;
     private List<Orders> movieList = new ArrayList<>();
     public MyOrdersAdapter mAdapter;
-    public static String ORDERSLISTURL="http://logic-fort.com/androidApp/Customer/viewcart.php";
+    public static String ORDERSLISTURL="http://graminvikreta.com/androidApp/Customer/viewcart.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

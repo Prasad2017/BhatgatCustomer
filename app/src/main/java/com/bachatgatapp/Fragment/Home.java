@@ -81,8 +81,8 @@ public class Home extends Fragment {
     private static int NUM_PAGES = 0;
     ArrayList<Viewpager> arr = new ArrayList<>();
     CirclePageIndicator indicator;
-    public  static  String CategoryURL = "http://logic-fort.com/androidApp/Customer/Main_category.php";
-    public static String GetCartURL="http://logic-fort.com/androidApp/Customer/cartcount.php";
+    public  static  String CategoryURL = "http://graminvikreta.com/androidApp/Customer/Main_category.php";
+    public static String GetCartURL="http://graminvikreta.com/androidApp/Customer/cartcount.php";
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
 
     @Override

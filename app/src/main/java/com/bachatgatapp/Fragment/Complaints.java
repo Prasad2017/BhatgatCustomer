@@ -41,7 +41,7 @@ public class Complaints extends Fragment {
     EditText complaint;
     Spinner spinner;
     String cart_id;
-    public static String complaintUrl="http://logic-fort.com/androidApp/Customer/ComplaintUser.php";
+    public static String complaintUrl="http://graminvikreta.com/androidApp/Customer/ComplaintUser.php";
     String[] city_id_pk, city_name;
     String cityid,city_value;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();

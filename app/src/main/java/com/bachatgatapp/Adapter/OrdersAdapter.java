@@ -53,7 +53,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     public Context context;
     public Float totalprice;
     public String finalproductprice, cart_id_pk, cart_id, grandt;
-    public  static String DeleteOrder="http://logic-fort.com/androidApp/Customer/Delete_cart.php";
+    public  static String DeleteOrder="http://graminvikreta.com/androidApp/Customer/Delete_cart.php";
     public AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -101,7 +101,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             holder.quantity.setText(orders.getQty());
             try {
                 Picasso.with(context)
-                        .load("http://logic-fort.com/bachatgat/" + orders.getProduct_image1())
+                        .load("http://graminvikreta.com/bachatgat/" + orders.getProduct_image1())
                         .placeholder(R.drawable.defaultimage)
                         .into(holder.productImage1);
             } catch (Exception e) {
@@ -203,7 +203,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                         Log.e("cardidfk",orders.getCart_product_pk());
                         requestParams.put("total",totalprice);
 
-                        asyncHttpClient.post("http://logic-fort.com/androidApp/Customer/Update_cart.php", requestParams, new AsyncHttpResponseHandler() {
+                        asyncHttpClient.post("http://graminvikreta.com/androidApp/Customer/Update_cart.php", requestParams, new AsyncHttpResponseHandler() {
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                                 String s = new String(responseBody);
@@ -215,7 +215,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                                         RequestParams requestParams = new RequestParams();
                                         requestParams.put("cart_fk",orders.getCart_pk());
 
-                                        asyncHttpClient.get("http://logic-fort.com/androidApp/Customer/GetGrandCartCount.php", requestParams, new AsyncHttpResponseHandler() {
+                                        asyncHttpClient.get("http://graminvikreta.com/androidApp/Customer/GetGrandCartCount.php", requestParams, new AsyncHttpResponseHandler() {
                                             @Override
                                             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                                                 String s = new String(responseBody);
@@ -236,7 +236,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                                                     requestParamst.put("cart_total",grandt);
                                                    // Toast.makeText(context,""+grandt,Toast.LENGTH_SHORT).show();
 
-                                                    asyncHttpClient.post("http://logic-fort.com/androidApp/Customer/Update_grandCart_total.php", requestParamst, new AsyncHttpResponseHandler() {
+                                                    asyncHttpClient.post("http://graminvikreta.com/androidApp/Customer/Update_grandCart_total.php", requestParamst, new AsyncHttpResponseHandler() {
                                                         @Override
                                                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                                                             String s = new String(responseBody);
@@ -325,7 +325,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                     requestParamsg.put("cart_fk",cart_id);
                     Log.e("cart_fk",cart_id);
 
-                    asyncHttpClient.get("http://logic-fort.com/androidApp/Customer/GetGrandCartCount.php", requestParamsg, new AsyncHttpResponseHandler() {
+                    asyncHttpClient.get("http://graminvikreta.com/androidApp/Customer/GetGrandCartCount.php", requestParamsg, new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             String s = new String(responseBody);

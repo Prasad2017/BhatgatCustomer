@@ -46,7 +46,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<HomeProductsV
             String string = image.substring(1, image.length()-1);
             Log.e("img",""+string);
             Picasso.with(context)
-                    .load("http://logic-fort.com/bachatgat/"+string)
+                    .load("http://graminvikreta.com/bachatgat/"+string)
                     .placeholder(R.drawable.defaultimage)
                     .into(holder.image1);
         } catch (Exception e) {

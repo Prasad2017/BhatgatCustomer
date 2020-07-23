@@ -65,8 +65,8 @@ public class MyOrders extends Fragment {
     public static double total;
     private List<Orders> movieList = new ArrayList<>();
     public static OrdersAdapter mAdapter;
-   // public static String ORDERSLISTURL="http://logic-fort.com/androidApp/Customer/GetCartList.php";
-    public static String ORDERSLISTURL="http://logic-fort.com/androidApp/Customer/viewcart.php";
+   // public static String ORDERSLISTURL="http://graminvikreta.com/androidApp/Customer/GetCartList.php";
+    public static String ORDERSLISTURL="http://graminvikreta.com/androidApp/Customer/viewcart.php";
     public static Button paymentprocess, continueShopping1,continueShopping;
     public static TextView totalgrand;
     public static LinearLayout totlall,emptyOrdersLayout, safepay;
@@ -232,7 +232,7 @@ public class MyOrders extends Fragment {
             requestParamsg.put("cart_fk", cart_id);
             Log.e("cart_fk", cart_id);
 
-            asyncHttpClient.get("http://logic-fort.com/androidApp/Customer/GetGrandCartCount.php", requestParamsg, new AsyncHttpResponseHandler() {
+            asyncHttpClient.get("http://graminvikreta.com/androidApp/Customer/GetGrandCartCount.php", requestParamsg, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String s = new String(responseBody);
