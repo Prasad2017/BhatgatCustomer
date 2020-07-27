@@ -70,8 +70,8 @@ public class SplashScreen extends AppCompatActivity {
         if (DetectConnection.checkInternetConnection(getApplicationContext())) {
             splashImage.setVisibility(View.VISIBLE);
             internetNotAvailable.setVisibility(View.GONE);
-            getAllProducts();
-           // moveNext();
+         //   getAllProducts();
+            moveNext();
         } else {
             internetNotAvailable.setVisibility(View.VISIBLE);
             splashImage.setVisibility(View.GONE);
@@ -84,6 +84,7 @@ public class SplashScreen extends AppCompatActivity {
         Api.getClient().getAllProducts(new Callback<List<Product>>() {
             @Override
             public void success(List<Product> allProducts, Response response) {
+                Log.e("Success", ""+response.getStatus());
                 try {
                     allProductsData = allProducts;
                     Log.d("allProductsData", allProducts.get(0).getProduct_name());

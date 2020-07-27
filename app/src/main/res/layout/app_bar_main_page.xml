@@ -32,10 +32,10 @@
             android:id="@+id/logo"
             android:layout_toRightOf="@+id/menu"
             android:layout_width="50dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_centerInParent="true"
             android:layout_height="wrap_content"
-            android:src="@drawable/mainpage" />
+            android:src="@drawable/logo" />
 
         <ImageView
             android:id="@+id/back"
@@ -54,7 +54,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:text="Kisan Putra"
+            android:text="@string/app_name"
             android:layout_toRightOf="@+id/back"
             android:textColor="@color/white"
             android:textSize="18sp"

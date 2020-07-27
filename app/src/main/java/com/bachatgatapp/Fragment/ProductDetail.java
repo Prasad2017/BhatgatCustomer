@@ -89,7 +89,7 @@ public class ProductDetail  extends Fragment {
     EditText quantity,quantitygrams;
     TextView actulpricedata;
     Spinner spinner;
-    double minteger = 0.5;
+    double minteger = 1;
     ImageView minus,plus;
 
     @Override
@@ -176,11 +176,11 @@ public class ProductDetail  extends Fragment {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                minteger = minteger - 0.5;
+                minteger = minteger - 1;
                 String qty = String.valueOf(minteger);
                 Log.e("qty", "" + qty);
                 if (qty.equalsIgnoreCase("0") || minteger>50 || minteger<0) {
-                    quantity.setText("0.5");
+                    quantity.setText("1");
                 } else {
                     quantity.setText(qty);
                 }
@@ -190,11 +190,11 @@ public class ProductDetail  extends Fragment {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                minteger = minteger + 0.5;
+                minteger = minteger + 1;
                 String qty = String.valueOf(minteger);
                 Log.e("qty", "" + qty);
                 if (qty.equalsIgnoreCase("0") || minteger>50 || minteger<0) {
-                    quantity.setText("0.5");
+                    quantity.setText("1");
                 } else {
                     quantity.setText(qty);
                 }
@@ -507,7 +507,7 @@ public class ProductDetail  extends Fragment {
                         Log.e("string image",""+string);
                         try {
                             Picasso.with(getActivity())
-                                    .load("http://graminvikreta.com/bachatgat/" + string)
+                                    .load("http://graminvikreta.com/graminvikreta/" + string)
                                     .placeholder(R.drawable.defaultimage)
                                     .into(noImageAdded);
                         } catch (Exception e) {

@@ -221,9 +221,11 @@
                                 android:paddingLeft="6dp"
                                 android:singleLine="true"
                                 android:textSize="14sp" />
+
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

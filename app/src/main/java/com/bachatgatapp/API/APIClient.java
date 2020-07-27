@@ -1,8 +1,12 @@
 package com.bachatgatapp.API;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -11,22 +15,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class APIClient {
+
+    public static String token = null;
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
 
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        // set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         if (retrofit == null) {
 
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(1, TimeUnit.MINUTES)
-                    .readTimeout(1, TimeUnit.MINUTES)
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+
+            OkHttpClient httpClient = new OkHttpClient.Builder()
+                    .connectTimeout(50, TimeUnit.MINUTES)
+                    .readTimeout(50, TimeUnit.MINUTES)
+                    .addInterceptor(logging)
+                    .retryOnConnectionFailure(true)
                     .build();
 
             retrofit = new Retrofit.Builder()
                     .baseUrl("http://graminvikreta.com/")
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(client)
+                    .client(httpClient)
                     .build();
         }
         return retrofit;

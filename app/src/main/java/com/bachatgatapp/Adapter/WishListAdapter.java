@@ -55,7 +55,7 @@ public class WishListAdapter extends RecyclerView.Adapter<HomeProductsViewHolder
             String string = image.substring(1, image.length()-1);
             Log.e("img",""+string);
             Picasso.with(context)
-                    .load("http://graminvikreta.com/bachatgat/"+string)
+                    .load("http://graminvikreta.com/graminvikreta/"+string)
                     .placeholder(R.drawable.defaultimage)
                     .into(holder.image1);
         } catch (Exception e) {

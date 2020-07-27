@@ -92,7 +92,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyView
         }
         try {
             Picasso.with(context)
-                    .load("http://graminvikreta.com/bachatgat/" + orders.getProduct_image1())
+                    .load("http://graminvikreta.com/graminvikreta/" + orders.getProduct_image1())
                     .placeholder(R.drawable.defaultimage)
                     .into(holder.productImage1);
         } catch (Exception e) {
