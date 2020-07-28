@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.bachatgatapp">
+    package="com.graminvikreta">
 
     <dist:module dist:instant="true" />
 
@@ -19,7 +19,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
-        android:name=".Applications.SmsVerificationApp"
+        android:name="com.graminvikreta.Applications.SmsVerificationApp"
         android:allowBackup="true"
         android:allowClearUserData="true"
         android:icon="@drawable/logo"
@@ -32,7 +32,7 @@
         tools:replace="android:icon">
 
         <activity
-            android:name="com.bachatgatapp.Activity.SplashScreen"
+            android:name="com.graminvikreta.Activity.SplashScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -41,12 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.bachatgatapp.Activity.Login" />
-        <activity android:name="com.bachatgatapp.Activity.SignUp" />
-        <activity android:name="com.bachatgatapp.Activity.ForgotPassword" />
-        <activity android:name="com.bachatgatapp.Activity.LoginOtp" />
+        <activity android:name="com.graminvikreta.Activity.Login" />
+        <activity android:name="com.graminvikreta.Activity.SignUp" />
+        <activity android:name="com.graminvikreta.Activity.ForgotPassword" />
+        <activity android:name="com.graminvikreta.Activity.LoginOtp" />
         <activity
-            android:name="com.bachatgatapp.Activity.MainPage"
+            android:name="com.graminvikreta.Activity.MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme" />
 
@@ -54,9 +54,9 @@
             android:name="sendotp.key"
             android:value="@string/sendotp_key" />
 
-        <activity android:name="com.bachatgatapp.Activity.VerificationActivity" />
-        <activity android:name="com.bachatgatapp.Activity.OrderConfirmed" />
-        <activity android:name="com.bachatgatapp.Activity.Verify"/>
+        <activity android:name="com.graminvikreta.Activity.VerificationActivity" />
+        <activity android:name="com.graminvikreta.Activity.OrderConfirmed" />
+        <activity android:name="com.graminvikreta.Activity.Verify"/>
     </application>
 
 </manifest>
