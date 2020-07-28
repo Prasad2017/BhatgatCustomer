@@ -231,7 +231,7 @@ public class LoginOtp extends AppCompatActivity implements GoogleApiClient.Conne
         HASH_KEY = (String) new AppSignatureHelper(this).getAppSignatures().get(0);
         HASH_KEY = HASH_KEY.replace("+", "%252B");
         OTP= new DecimalFormat("0000").format(new Random().nextInt(9999));
-        String message = "<#> Your Bachatgat App verification OTP code is "+ OTP +". Please DO NOT share this OTP with anyone.\n" + HASH_KEY;
+        String message = "<#> Your GraminVikreta App verification OTP code is "+ OTP +". Please DO NOT share this OTP with anyone.\n" + HASH_KEY;
         String encoded_message= URLEncoder.encode(message);
         Log.e("Message", ""+encoded_message);
 
