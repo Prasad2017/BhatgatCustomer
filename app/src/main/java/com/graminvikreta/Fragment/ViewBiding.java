@@ -38,11 +38,10 @@ public class ViewBiding extends Fragment {
     View view;
     @BindView(R.id.acceptsimpleListView)
     RecyclerView acceptsimpleListView;
-    @BindViews({R.id.acceptordercardview})
-    List<CardView> cardViews;
     public static SwipeRefreshLayout swipeRefreshLayout;
     MyBidingAdpter myOrdersAdapter;
     public static BidData mybiddingResponse;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,10 +49,7 @@ public class ViewBiding extends Fragment {
         view = inflater.inflate(R.layout.fragment_view_biding, container, false);
         ButterKnife.bind(this, view);
 
-
-
         return view;
-
     }
 
     @Override
@@ -89,18 +85,17 @@ public class ViewBiding extends Fragment {
                             acceptsimpleListView.setAdapter(myOrdersAdapter);
                             myOrdersAdapter.notifyDataSetChanged();
                             acceptsimpleListView.setHasFixedSize(true);
-                            cardViews.get(1).setVisibility(View.VISIBLE);
                         } catch (Exception e) {
-                            cardViews.get(0).setVisibility(View.GONE);
+                          e.printStackTrace();
                         }
                     }else {
-                        cardViews.get(0).setVisibility(View.GONE);
+
                     }
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
-                    cardViews.get(0).setVisibility(View.GONE);
+                    Log.d("size", ""+error.toString());
                 }
             });
 

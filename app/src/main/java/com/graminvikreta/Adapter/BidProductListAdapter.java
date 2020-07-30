@@ -35,7 +35,7 @@ public class BidProductListAdapter extends RecyclerView.Adapter<MyHolder> {
     public void onBindViewHolder(MyHolder holder, int position) {
 
         Vendor_id=newsListResponse.get(position).getVendor_id();
-        holder.textViews.get(0).setText("Anonymous");
+        holder.textViews.get(0).setText(newsListResponse.get(position).getFull_name());
         holder.textViews.get(1).setText(newsListResponse.get(position).getBid_amount());
     }
 

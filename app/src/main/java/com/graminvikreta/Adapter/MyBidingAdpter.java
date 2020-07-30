@@ -60,7 +60,7 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
     public void onBindViewHolder(@NonNull MyOrderholder holder, final int position) {
 
         setProductsData(holder, position);
-        holder.date.setText(results.get(position).getOrder_title());
+        //holder.date.setText(results.get(position).getOrder_title());
 
         holder.bid_details.setOnClickListener(new View.OnClickListener() {
             @Override
