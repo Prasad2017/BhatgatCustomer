@@ -42,7 +42,6 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
     View dialogView1;
 
 
-
     public MyBidingAdpter(Context context, List<DeliverStock> results) {
         this.context=context;
         this.results=results;
@@ -71,7 +70,7 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
                 requestParams.put("order_id",results.get(position).getId());
 
                 AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-                asyncHttpClient.post("http://softmate.in/androidApp/Qsar/DeliveryBoy/getVendorBid.php", requestParams, new AsyncHttpResponseHandler() {
+                asyncHttpClient.post("http://graminvikreta.com/androidApp/Customer/getCustomerBid.php", requestParams, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         String s = new String(responseBody);
