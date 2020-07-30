@@ -346,14 +346,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bidding"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="Start Bidding"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/black" />
 
             <RelativeLayout
                 android:id="@+id/addToWishListLayout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:background="@color/white"
                 android:gravity="center">
 
@@ -382,6 +393,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
+                android:visibility="gone"
                 android:gravity="center">
 
                 <Button
