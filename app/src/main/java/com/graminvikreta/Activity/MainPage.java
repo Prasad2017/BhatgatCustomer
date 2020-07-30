@@ -180,8 +180,6 @@ public class MainPage extends AppCompatActivity {
                 if((listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition)).equals("My Profile"))
                 {
                     loadFragment(new MyProfile(),true);
-                }else  if ((listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition)).equals("Wishlist")){
-                    loadFragment(new Wishlist(),true);
                 }else  if ((listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition)).equals("Save Address")){
                    // loadFragment(new Wishlist(),true);
                 }else  if ((listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition)).equals("Change Password")){
@@ -265,13 +263,11 @@ public class MainPage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
+                    case R.id.notification:
                         loadFragment(new Home(),true);
                         break;
                     case R.id.whishlist:
                         loadFragment(new Wishlist(),true);
-                        break;
-                    case R.id.notification:
-                        loadFragment(new Home(),true);
                         break;
                 }
                 return true;

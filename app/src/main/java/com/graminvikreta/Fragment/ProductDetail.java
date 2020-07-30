@@ -24,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.graminvikreta.Extra.DetectConnection;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -235,6 +236,18 @@ public class ProductDetail  extends Fragment {
                     }
                 }else {
                     Toast.makeText(getActivity(), "Error in getting user_id", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+
+            case R.id.bidding:
+
+                if (DetectConnection.checkInternetConnection(getActivity())) {
+
+
+
+                } else {
+                    Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
 
                 break;

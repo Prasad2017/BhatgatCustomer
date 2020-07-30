@@ -10,7 +10,7 @@
         <item
             android:id="@+id/whishlist"
             android:icon="@drawable/whishlist"
-            android:title="Whishlist" />
+            android:title="Bidding" />
         <item
             android:id="@+id/notification"
             android:icon="@drawable/notification"
