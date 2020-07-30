@@ -46,4 +46,8 @@ public interface APInterface {
                                       @Field("product_fk") String product_fk,
                                       @Field("bid_amount") String bid_amount);
 
+    @GET("/androidApp/Customer/UpdateBid.php")
+    Call<StatusResponse> UpdateVendorBid(@Query("") String order_id,
+                                         @Query("") String userId,
+                                         @Query("") String bid_amt);
 }

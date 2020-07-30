@@ -15,8 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.graminvikreta.API.APIClient;
+import com.graminvikreta.API.APInterface;
 import com.graminvikreta.Activity.MainPage;
+import com.graminvikreta.Fragment.ViewBiding;
 import com.graminvikreta.Model.DeliverStock;
+import com.graminvikreta.Model.StatusResponse;
 import com.graminvikreta.R;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -147,25 +151,25 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
 
     public void UpdateVendorBid(String order_id, String bid_amt) {
 
-       /* ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<Status> call = apiService.UpdateVendorBid(order_id, MainPageVendor.userId, bid_amt);
-        call.enqueue(new Callback<Status>() {
+        APInterface apiService = APIClient.getClient().create(APInterface.class);
+        Call<StatusResponse> call = apiService.UpdateVendorBid(order_id, MainPage.userId, bid_amt);
+        call.enqueue(new Callback<StatusResponse>() {
             @Override
-            public void onResponse(Call<Status> call, Response<Status> response) {
-                Log.e("succces", "" + response.body().getSuccess());
+            public void onResponse(Call<StatusResponse> call, Response<StatusResponse> response) {
+                Log.e("success", "" + response.body().getSuccess());
                 if (response.body().getSuccess().equalsIgnoreCase("1")) {
                     Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    ((MainPageVendor) context).loadFragment(new OrderHistory(), true);
-                    ((MainPageVendor) context).removeCurrentFragmentAndMoveBack();
+                    ((MainPage) context).loadFragment(new ViewBiding(), true);
+                    ((MainPage) context).removeCurrentFragmentAndMoveBack();
                 }
             }
 
             @Override
-            public void onFailure(Call<Status> call, Throwable t) {
+            public void onFailure(Call<StatusResponse> call, Throwable t) {
                 // Log error here since request failed
                 Toast.makeText(context, " failed", Toast.LENGTH_SHORT).show();
 
             }
-        });*/
+        });
     }
 }
