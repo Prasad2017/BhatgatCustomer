@@ -3,6 +3,7 @@ package com.graminvikreta.API;
 
 
 import com.graminvikreta.Model.Orders;
+import com.graminvikreta.Model.StatusResponse;
 import com.graminvikreta.Model.ViewpagerResponce;
 
 import org.json.JSONObject;
@@ -38,5 +39,10 @@ public interface APInterface {
     @GET("/androidApp/Supplier/sendSMS.php")
     Call<JSONObject> sendSMS(@Query("number") String mobileNumber,
                              @Query("message") String message);
+
+    @FormUrlEncoded
+    @POST("/androidApp/Customer/start_bid.php")
+    Call<StatusResponse> startBidding(@Field("user_fk") String userId,
+                                      @Field("product_fk") String product_fk);
 
 }

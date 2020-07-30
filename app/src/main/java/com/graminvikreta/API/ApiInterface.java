@@ -1,6 +1,7 @@
 package com.graminvikreta.API;
 
 
+import com.graminvikreta.Model.StatusResponse;
 import com.graminvikreta.Model.WishlistResponse;
 import com.graminvikreta.Model.AddToWishlistResponse;
 import com.graminvikreta.Model.Product;
@@ -12,6 +13,7 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit2.Call;
 
 public interface ApiInterface {
 
@@ -40,5 +42,7 @@ public interface ApiInterface {
     // API's endpoints
     @GET("/androidApp/Customer/allproducts.php")
     public void getAllProducts(Callback<List<Product>> callback);
+
+
 
 }

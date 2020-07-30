@@ -24,7 +24,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.graminvikreta.API.APIClient;
+import com.graminvikreta.API.APInterface;
+import com.graminvikreta.API.ApiInterface;
 import com.graminvikreta.Extra.DetectConnection;
+import com.graminvikreta.Model.StatusResponse;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -52,6 +56,7 @@ import cz.msebera.android.httpclient.Header;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import retrofit2.Call;
 
 public class ProductDetail  extends Fragment {
 
@@ -265,7 +270,26 @@ public class ProductDetail  extends Fragment {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        
+        APInterface apiInterface = APIClient.getClient().create(APInterface.class);
+        Call<StatusResponse> call = apiInterface.startBidding(MainPage.userId, ""+position);
+        call.enqueue(new retrofit2.Callback<StatusResponse>() {
+            @Override
+            public void onResponse(Call<StatusResponse> call, retrofit2.Response<StatusResponse> response) {
+
+                if (response.body().getSuccess().equalsIgnoreCase("true")){
+                    pDialog.dismiss();
+                } else if (response.body().getSuccess().equalsIgnoreCase("false")){
+                    pDialog.dismiss();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<StatusResponse> call, Throwable t) {
+                pDialog.dismiss();
+                Log.e("Error", ""+t.getMessage());
+            }
+        });
 
 
     }
