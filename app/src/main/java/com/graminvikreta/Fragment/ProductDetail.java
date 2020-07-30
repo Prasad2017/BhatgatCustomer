@@ -205,7 +205,7 @@ public class ProductDetail  extends Fragment {
     }
 
 
-    @OnClick({R.id.addToWishListLayout, R.id.addToWishList, R.id.addToCart})
+    @OnClick({R.id.addToWishListLayout, R.id.addToWishList, R.id.addToCart, R.id.bidding})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.addToWishList:
