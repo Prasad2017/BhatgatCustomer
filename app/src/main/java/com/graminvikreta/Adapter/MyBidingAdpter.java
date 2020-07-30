@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.graminvikreta.Activity.MainPage;
@@ -132,11 +133,11 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
         if (results.get(position).getDates().size()==0){
 
         }else {
-            /*GridLayoutManager gridLayoutManager;
+            GridLayoutManager gridLayoutManager;
             gridLayoutManager = new GridLayoutManager(context, 1);
             holder.orderedProductsRecyclerView.setLayoutManager(gridLayoutManager);
-            OrderProductListAdapter myOrdersAdapter = new OrderProductListAdapter(context, results.get(position).getDates());
-            holder.orderedProductsRecyclerView.setAdapter(myOrdersAdapter);*/
+            BidProductListAdapter myOrdersAdapter = new BidProductListAdapter(context, results.get(position).getDates());
+            holder.orderedProductsRecyclerView.setAdapter(myOrdersAdapter);
         }
     }
 
