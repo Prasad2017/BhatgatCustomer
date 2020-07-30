@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.graminvikreta.API.Api;
 import com.graminvikreta.Activity.MainPage;
+import com.graminvikreta.Adapter.BidProductListAdapter;
 import com.graminvikreta.Adapter.MyBidingAdpter;
 import com.graminvikreta.Extra.DetectConnection;
 import com.graminvikreta.Model.BidData;
@@ -41,7 +42,7 @@ public class ViewBiding extends Fragment {
     List<CardView> cardViews;
     public static SwipeRefreshLayout swipeRefreshLayout;
     MyBidingAdpter myOrdersAdapter;
-
+    public static BidData mybiddingResponse;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,7 +80,16 @@ public class ViewBiding extends Fragment {
                 public void success(BidData biddingResponse, Response response) {
                     if (biddingResponse.getSuccess().equalsIgnoreCase("true")) {
                         try {
-
+                            Log.d("size", biddingResponse.getOrderdata().size() + "");
+                            mybiddingResponse = biddingResponse;
+                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                            acceptsimpleListView.setLayoutManager(linearLayoutManager);
+                            myOrdersAdapter = new MyBidingAdpter(getActivity(), biddingResponse.getOrderdata());
+                            acceptsimpleListView.setAdapter(myOrdersAdapter);
+                            myOrdersAdapter.notifyDataSetChanged();
+                            acceptsimpleListView.setHasFixedSize(true);
+                            cardViews.get(1).setVisibility(View.VISIBLE);
                         } catch (Exception e) {
                             cardViews.get(0).setVisibility(View.GONE);
                         }
