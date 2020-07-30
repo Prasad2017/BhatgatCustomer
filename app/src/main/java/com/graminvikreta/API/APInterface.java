@@ -43,6 +43,7 @@ public interface APInterface {
     @FormUrlEncoded
     @POST("/androidApp/Customer/start_bid.php")
     Call<StatusResponse> startBidding(@Field("user_fk") String userId,
-                                      @Field("product_fk") String product_fk);
+                                      @Field("product_fk") String product_fk,
+                                      @Field("bid_amount") String bid_amount);
 
 }

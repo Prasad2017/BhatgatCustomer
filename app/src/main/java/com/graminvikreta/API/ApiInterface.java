@@ -1,6 +1,7 @@
 package com.graminvikreta.API;
 
 
+import com.graminvikreta.Model.BidData;
 import com.graminvikreta.Model.StatusResponse;
 import com.graminvikreta.Model.WishlistResponse;
 import com.graminvikreta.Model.AddToWishlistResponse;
@@ -43,6 +44,14 @@ public interface ApiInterface {
     @GET("/androidApp/Customer/allproducts.php")
     public void getAllProducts(Callback<List<Product>> callback);
 
+    @FormUrlEncoded
+    @POST("/androidApp/Customer/start_bid.php")
+    public void startBidding(@Field("user_fk") String userId,
+                             @Field("product_fk") String product_fk,
+                             @Field("bid_amount") String bid_amount,
+                             Callback<StatusResponse> callback);
 
 
+
+    void getBidding(String userId, Callback<BidData> aTrue);
 }

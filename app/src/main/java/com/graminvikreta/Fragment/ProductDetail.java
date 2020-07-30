@@ -1,14 +1,18 @@
 package com.graminvikreta.Fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -44,6 +48,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -211,7 +216,7 @@ public class ProductDetail  extends Fragment {
     }
 
 
-    @OnClick({R.id.addToWishListLayout, R.id.addToWishList, R.id.addToCart, R.id.bidding})
+    @OnClick({R.id.addToWishListLayout, R.id.addToWishList, R.id.addToCart, R.id.bidding, R.id.viewBidding})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.addToWishList:
@@ -258,38 +263,78 @@ public class ProductDetail  extends Fragment {
                 }
 
                 break;
+
+            case R.id.viewBidding:
+                ((MainPage) getActivity()).loadFragment(new ViewBiding(), true);
+                break;
         }
 
     }
 
     private void startBidding() {
 
-        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
-        pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
-        pDialog.setTitleText("Loading");
-        pDialog.setCancelable(false);
-        pDialog.show();
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.bid_dailog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setCancelable(false);
+        EditText bid_amount = dialog.findViewById(R.id.bid_amount);
+        TextView txtyes = dialog.findViewById(R.id.yes);
+        TextView txtno = dialog.findViewById(R.id.no);
 
-        APInterface apiInterface = APIClient.getClient().create(APInterface.class);
-        Call<StatusResponse> call = apiInterface.startBidding(MainPage.userId, ""+position);
-        call.enqueue(new retrofit2.Callback<StatusResponse>() {
+        txtno.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<StatusResponse> call, retrofit2.Response<StatusResponse> response) {
-
-                if (response.body().getSuccess().equalsIgnoreCase("true")){
-                    pDialog.dismiss();
-                } else if (response.body().getSuccess().equalsIgnoreCase("false")){
-                    pDialog.dismiss();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<StatusResponse> call, Throwable t) {
-                pDialog.dismiss();
-                Log.e("Error", ""+t.getMessage());
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
+
+        txtyes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (bid_amount.getText().toString().length()>0) {
+
+                    final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
+                    pDialog.setTitleText("Loading");
+                    pDialog.setCancelable(false);
+                    pDialog.show();
+
+                    Api.getClient().startBidding(MainPage.userId, "" + position, bid_amount.getText().toString().trim(), new Callback<StatusResponse>() {
+                        @Override
+                        public void success(StatusResponse statusResponse, Response response) {
+
+
+                            if (statusResponse.getSuccess().equalsIgnoreCase("true")) {
+
+                                pDialog.dismiss();
+                                Toast.makeText(getActivity(), "" + statusResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+
+                            } else if (statusResponse.getSuccess().equalsIgnoreCase("false")) {
+
+                                pDialog.dismiss();
+                                Toast.makeText(getActivity(), "" + statusResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+
+                            }
+
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            pDialog.dismiss();
+                            dialog.dismiss();
+                            Log.e("BidError", "" + error.toString());
+                        }
+                    });
+                }
+            }
+        });
+
+
+        dialog.show();
 
 
     }
