@@ -243,15 +243,30 @@ public class ProductDetail  extends Fragment {
             case R.id.bidding:
 
                 if (DetectConnection.checkInternetConnection(getActivity())) {
-
-
-
+                    if (!MainPage.userId.equalsIgnoreCase("")) {
+                        startBidding();
+                    }else {
+                        Toast.makeText(getActivity(), "Error in getting user_id", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
         }
+
+    }
+
+    private void startBidding() {
+
+        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
+        pDialog.setTitleText("Loading");
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        
+
 
     }
 
