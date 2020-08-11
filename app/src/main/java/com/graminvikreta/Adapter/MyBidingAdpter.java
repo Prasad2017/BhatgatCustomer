@@ -168,7 +168,6 @@ public class MyBidingAdpter extends RecyclerView.Adapter<MyOrderholder> {
             public void onFailure(Call<StatusResponse> call, Throwable t) {
                 // Log error here since request failed
                 Toast.makeText(context, " failed", Toast.LENGTH_SHORT).show();
-
             }
         });
     }

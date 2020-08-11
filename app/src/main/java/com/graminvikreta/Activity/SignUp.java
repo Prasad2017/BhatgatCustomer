@@ -24,6 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -34,13 +36,16 @@ import cz.msebera.android.httpclient.Header;
 
 public class SignUp extends AppCompatActivity {
 
-    @BindViews({R.id.username, R.id.contact, R.id.email, R.id.password})
+    @BindViews({R.id.username, R.id.contact, R.id.email, R.id.password, R.id.confirmPassword, R.id.companyname})
     List<EditText> editTexts;
     @BindView(R.id.loginLinearLayout)
     LinearLayout loginLinearLayout;
     TextView text;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
     public static String Signinurl = "http://graminvikreta.com/androidApp/Customer/Registration.php";
+    Pattern pattern;
+    Matcher matcher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +76,32 @@ public class SignUp extends AppCompatActivity {
                 finish();
                 break;
             case R.id.signup:
+
                 if (validate(editTexts.get(0)) && validate(editTexts.get(1)) && Config.validateEmail(editTexts.get(2),
-                        SignUp.this) && validatePassword(editTexts.get(3))) {
-                    signUp();
+                        SignUp.this) && validatePassword(editTexts.get(3)) && validate(editTexts.get(4))) {
+
+                   if (editTexts.get(0).getText().toString().matches("[a-zA-Z ]+")){
+
+                       if (editTexts.get(4).getText().toString().equals(editTexts.get(3).getText().toString())) {
+
+                           if (editTexts.get(1).getText().toString().length()==10) {
+                                signUp();
+                           } else {
+                               editTexts.get(1).setError("Enter valid mobile number");
+                               editTexts.get(1).requestFocus();
+                           }
+                       } else {
+                           editTexts.get(4).setError("Enter valid confirm password");
+                           editTexts.get(4).requestFocus();
+                       }
+
+                   } else {
+                       editTexts.get(0).setError("Enter valid full name");
+                       editTexts.get(0).requestFocus();
+                   }
+
                 }
+
                 break;
         }
     }
@@ -90,6 +117,7 @@ public class SignUp extends AppCompatActivity {
 
             RequestParams requestParams = new RequestParams();
             requestParams.put("full_name",editTexts.get(0).getText().toString());
+            requestParams.put("company_name",editTexts.get(5).getText().toString());
             requestParams.put("mobileno",editTexts.get(1).getText().toString());
             requestParams.put("email",editTexts.get(2).getText().toString());
             requestParams.put("password",editTexts.get(3).getText().toString());

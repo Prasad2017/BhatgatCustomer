@@ -130,7 +130,7 @@ public class Login extends AppCompatActivity {
 
             RequestParams requestParams = new RequestParams();
             requestParams.put("email",editTexts.get(0).getText().toString());
-            requestParams.put("password",password);
+            requestParams.put("password", password);
 
             asyncHttpClient.post(loginurl, requestParams, new AsyncHttpResponseHandler() {
                 @Override

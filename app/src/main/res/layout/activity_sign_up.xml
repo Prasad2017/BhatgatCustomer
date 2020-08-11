@@ -11,7 +11,7 @@
         android:id="@+id/titleLayout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/red">
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/backid"
@@ -65,11 +65,11 @@
 
             <ImageView
                 android:id="@+id/loginpagelogo"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/logo" />
 
             <LinearLayout
@@ -78,6 +78,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/loginpagelogo"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="8dp">
@@ -91,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/us"
                 android:layout_marginTop="25dp"
+                android:visibility="gone"
                 android:paddingRight="5dp"
                 android:src="@drawable/name"/>
 
@@ -107,7 +109,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#4a4a4a"
-                    android:hint=" Name"
+                    android:hint=" Full Name*"
+                    android:text=""
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName"
                     android:paddingBottom="15dp"
@@ -119,6 +122,47 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/us1"
+                        android:layout_marginTop="25dp"
+                        android:paddingRight="5dp"
+                        android:visibility="gone"
+                        android:src="@drawable/name"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/companynaelayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/us1"
+                        android:layout_marginLeft="5dp"
+                        android:textColorHint="@color/light_black">
+
+                        <EditText
+                            android:id="@+id/companyname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#4a4a4a"
+                            android:hint=" Company Name"
+                            android:text=""
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="15dp"
+                            android:paddingLeft="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/light_black" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -128,6 +172,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/co"
                 android:layout_marginTop="25dp"
+                android:visibility="gone"
                 android:paddingRight="5dp"
                 android:src="@drawable/contact"/>
 
@@ -144,9 +189,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#4a4a4a"
-                    android:hint=" Contact"
+                    android:hint=" Contact Number*"
                     android:imeOptions="actionNext"
-                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:inputType="numberDecimal"
+                    android:digits="0123456789"
                     android:paddingBottom="15dp"
                     android:paddingLeft="5dp"
                     android:singleLine="true"
@@ -201,6 +248,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/em"
+                android:visibility="gone"
                 android:layout_marginTop="25dp"
                 android:paddingRight="5dp"
                 android:src="@drawable/email"/>
@@ -218,7 +266,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#4a4a4a"
-                    android:hint=" Email Address"
+                    android:hint=" Email Address*"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:paddingBottom="15dp"
@@ -232,13 +280,13 @@
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ps"
+                android:visibility="gone"
                 android:layout_marginTop="25dp"
                 android:paddingRight="5dp"
                 android:src="@drawable/key"/>
@@ -257,7 +305,48 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#4a4a4a"
-                    android:hint=" Password"
+                    android:hint=" Password*"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ps1"
+                        android:visibility="gone"
+                        android:layout_marginTop="25dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/key"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPasswordlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ps1"
+                android:layout_marginLeft="5dp"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/light_black">
+
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4a4a4a"
+                    android:hint=" Confirm Password*"
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:paddingBottom="15dp"
