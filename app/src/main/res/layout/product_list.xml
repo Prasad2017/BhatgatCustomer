@@ -48,10 +48,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_toLeftOf="@+id/len"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:text="name"
                 android:textColor="@color/light_black"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textStyle="italic" />
 
             <LinearLayout
@@ -73,7 +73,7 @@
             android:layout_marginTop="8dp"
             android:gravity="right|center"
             android:textColor="@color/light_black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
