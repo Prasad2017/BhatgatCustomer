@@ -87,9 +87,11 @@ public class MainPage extends AppCompatActivity {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main_page);
         ButterKnife.bind(this);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -223,7 +225,7 @@ public class MainPage extends AppCompatActivity {
                         loadFragment(new PastOrder(),true);
                         break;
                     case R.id.setting:
-                        loadFragment(new Profile_Management(),true);
+                        loadFragment(new MyProfile(),true);
                         break;
                     /*case R.id.card:
                         loadFragment(new Home(),true);

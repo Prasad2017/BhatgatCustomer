@@ -30,9 +30,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Full Name"
+                    android:inputType="textPersonName"
                     android:imeOptions="actionNext"
                     android:singleLine="true"
                     android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp">
+
+                <EditText
+                    android:id="@+id/companyNameEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name"
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -89,7 +110,8 @@
                     android:hint="Mobile Number *"
                     android:imeOptions="actionNext"
                     android:maxLength="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
+                    android:digits="0123456789"
                     android:paddingLeft="6dp"
                     android:singleLine="true"
                     android:textSize="14sp" />
@@ -140,7 +162,7 @@
                     android:id="@+id/stateEditText"
                     android:layout_width="170dp"
                     android:layout_height="30dp"
-                    android:hint="City *"
+                    android:hint="State *"
                     android:imeOptions="actionNext"
                     android:paddingLeft="6dp"
                     android:layout_marginLeft="10dp"
@@ -211,7 +233,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Pincode *"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
+                        android:digits="0123456789"
                         android:maxLength="6"
                         android:paddingLeft="6dp"
                         android:singleLine="true"
@@ -258,12 +281,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
+            <TextView
                 android:id="@+id/submitBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:background="@drawable/main_button"
                 android:backgroundTint="@color/colorPrimary"
                 android:inputType="text"

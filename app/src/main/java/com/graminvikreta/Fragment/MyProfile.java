@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,6 +32,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -44,11 +47,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * A simple {@link Fragment} subclass.
  */
 public class MyProfile extends Fragment {
+
     View view;
-    @BindViews({R.id.fullNameEdt, R.id.mobEditText, R.id.areaEditText, R.id.buildingEditText, R.id.pincodeEditText, R.id.landmarkEditText,})
+    @BindViews({R.id.fullNameEdt, R.id.mobEditText, R.id.areaEditText, R.id.buildingEditText, R.id.pincodeEditText, R.id.landmarkEditText, R.id.companyNameEdt})
     List<EditText> editTexts;
     @BindView(R.id.submitBtn)
-    Button submitBtn;
+    TextView submitBtn;
     @BindViews({R.id.male, R.id.female})
     List<CircleImageView> circleImageViews;
     String gender = "";
@@ -56,16 +60,20 @@ public class MyProfile extends Fragment {
     LinearLayout profileLayout;
     @BindView(R.id.logout)
     Button logout;
-    Spinner cityspinner,statespinner;
+    Spinner cityspinner, statespinner;
     String[] city_id_pk, city_name;
     String[] state_id_pk, state_name;
-    String cityid, stateid,state_value,city_value;
+    String cityid, stateid, state_value, city_value;
     SweetAlertDialog pDialog;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
     public static String profileurl = "http://graminvikreta.com/androidApp/Customer/getprofile.php";
     public static String updateurl = "http://graminvikreta.com/androidApp/Customer/Update_profile.php";
     public static final String city="http://graminvikreta.com/androidApp/Customer/City.php";
     public static final String stateurl="http://graminvikreta.com/androidApp/Customer/State.php";
+    Pattern pattern;
+    Matcher matcher;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,12 +121,14 @@ public class MyProfile extends Fragment {
                     e.printStackTrace();
                 }
 
-                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_spinner_item, state_name);
-
-
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, state_name);
                 spinnerAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
                 statespinner.setAdapter(spinnerAdapter);
+                statespinner.setSelection(getIndex(statespinner, state_value));
+                if (state_value != null) {
+                    int spinnerPosition = spinnerAdapter.getPosition(state_value);
+                    statespinner.setSelection(spinnerPosition);
+                }
 
             }
 
@@ -163,7 +173,7 @@ public class MyProfile extends Fragment {
     private void getCity() {
 
         RequestParams requestParams = new RequestParams();
-        requestParams.put("state_fk",stateid);
+        requestParams.put("state_fk", stateid);
 
         asyncHttpClient.get(city, requestParams, new AsyncHttpResponseHandler() {
             @Override
@@ -189,12 +199,14 @@ public class MyProfile extends Fragment {
                     e.printStackTrace();
                 }
 
-                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_spinner_item, city_name);
-
-
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, city_name);
                 spinnerAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
                 cityspinner.setAdapter(spinnerAdapter);
+                cityspinner.setSelection(getIndex(cityspinner, city_value));
+                if (city_value != null) {
+                    int spinnerPosition = spinnerAdapter.getPosition(city_value);
+                    cityspinner.setSelection(spinnerPosition);
+                }
 
             }
 
@@ -226,19 +238,16 @@ public class MyProfile extends Fragment {
                     if (jsonObject.getString("status").equals("success")){
 
                         String name = jsonObject.getString("full_name");
+                        String company_name = jsonObject.getString("company_name");
                         String mobileno = jsonObject.getString("mobileno");
-                        String state = jsonObject.getString("state_name");
-                        String city = jsonObject.getString("city_name");
+                        state_value = jsonObject.getString("state_name");
+                        city_value = jsonObject.getString("city_name");
                         String pincode = jsonObject.getString("pincode");
                         String landmark = jsonObject.getString("landmark");
                         String building_name = jsonObject.getString("building_name");
                         String address = jsonObject.getString("address");
                         String street = jsonObject.getString("street");
-                        int state_fk = jsonObject.getInt("state_fk");
-                        int city_fk = jsonObject.getInt("city_fk");
                         gender = jsonObject.getString("gender");
-
-                        statespinner.setSelection(getIndex(statespinner, state));
 
                         try {
                             if (gender.equalsIgnoreCase("Female")) {
@@ -261,6 +270,7 @@ public class MyProfile extends Fragment {
                         editTexts.get(3).setText(building_name);
                         editTexts.get(4).setText(pincode);
                         editTexts.get(5).setText(landmark);
+                        editTexts.get(6).setText(company_name);
 
                     }else if (jsonObject.getString("status").equals("Fail")){
                         pDialog.dismiss();
@@ -319,8 +329,21 @@ public class MyProfile extends Fragment {
                         && validate(editTexts.get(3))
                         && validate(editTexts.get(4)))
 
+                    if (editTexts.get(0).getText().toString().matches("[a-zA-Z ]+")){
 
-                    updateProfile();
+                            if (editTexts.get(1).getText().toString().length()==10) {
+
+                             updateProfile();
+
+                            } else {
+                                editTexts.get(1).setError("Enter valid mobile number");
+                                editTexts.get(1).requestFocus();
+                            }
+
+                    } else {
+                        editTexts.get(0).setError("Enter valid full name");
+                        editTexts.get(0).requestFocus();
+                    }
                 break;
         }
     }
@@ -345,11 +368,14 @@ public class MyProfile extends Fragment {
             requestParams.put("building_name", editTexts.get(3).getText().toString());
             requestParams.put("pincode", editTexts.get(4).getText().toString());
             requestParams.put("landmark", editTexts.get(5).getText().toString());
+            requestParams.put("company_name", editTexts.get(6).getText().toString());
             requestParams.put("city_fk", cityid);
             requestParams.put("state_fk", stateid);
             requestParams.put("gender", gender);
             requestParams.put("id", MainPage.userId);
             requestParams.put("address", address);
+
+            Log.e("Value", ""+stateid+"\n"+cityid);
 
             asyncHttpClient.post(updateurl, requestParams, new AsyncHttpResponseHandler() {
                 @Override
@@ -394,7 +420,9 @@ public class MyProfile extends Fragment {
         super.onStart();
         ((MainPage) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         MainPage.cart.setVisibility(View.GONE);
+        MainPage.cartCount.setVisibility(View.GONE);
         MainPage.logo.setVisibility(View.GONE);
+        MainPage.search.setVisibility(View.GONE);
         MainPage.title.setVisibility(View.VISIBLE);
         if (DetectConnection.checkInternetConnection(getActivity())) {
 
