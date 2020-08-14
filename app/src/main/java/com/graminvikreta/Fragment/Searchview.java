@@ -96,7 +96,7 @@ public class Searchview extends Fragment {
             public void success(List<Product> allProducts, Response response) {
                 try {
                     allProductsData = allProducts;
-                    Log.d("allProductsData", allProducts.get(0).getProduct_name());
+                   // Log.d("allProductsData", allProducts.get(0).getProduct_name());
                     Gson gson = new Gson();
                     String json = gson.toJson(allProductsData);
 

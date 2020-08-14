@@ -56,7 +56,7 @@ public class ViewBiding extends Fragment {
     public void onStart() {
         super.onStart();
         ((MainPage) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        MainPage.title.setText("Search");
+        MainPage.title.setText("View Bidding");
         MainPage.cart.setVisibility(View.VISIBLE);
         MainPage.logo.setVisibility(View.GONE);
         MainPage.title.setVisibility(View.VISIBLE);
@@ -76,7 +76,7 @@ public class ViewBiding extends Fragment {
                 public void success(BidData biddingResponse, Response response) {
                     if (biddingResponse.getSuccess().equalsIgnoreCase("true")) {
                         try {
-                            Log.d("size", biddingResponse.getOrderdata().size() + "");
+                          //  Log.d("size", biddingResponse.getOrderdata().size() + "");
                             mybiddingResponse = biddingResponse;
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

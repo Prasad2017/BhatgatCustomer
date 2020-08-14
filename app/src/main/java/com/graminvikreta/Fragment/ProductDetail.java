@@ -305,7 +305,6 @@ public class ProductDetail  extends Fragment {
                         @Override
                         public void success(StatusResponse statusResponse, Response response) {
 
-
                             if (statusResponse.getSuccess().equalsIgnoreCase("true")) {
 
                                 pDialog.dismiss();
