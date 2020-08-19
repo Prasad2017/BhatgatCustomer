@@ -96,10 +96,10 @@ public class AwardBid extends Fragment {
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                             recyclerView.setLayoutManager(linearLayoutManager);
-                            // myOrdersAdapter = new MyBidingAdpter(getActivity(), biddingResponse.getOrderdata());
-                            // recyclerView.setAdapter(myOrdersAdapter);
-                            // myOrdersAdapter.notifyDataSetChanged();
-                            recyclerView.setHasFixedSize(true);
+                           //  AwardordersAdapter awardAdapter = new AwardordersAdapter(getActivity(), biddingResponse.getOrderdata());
+                           //  recyclerView.setAdapter(awardAdapter);
+                             //awardAdapter.notifyDataSetChanged();
+                             recyclerView.setHasFixedSize(true);
 
                         } catch (Exception e) {
                             e.printStackTrace();
