@@ -59,4 +59,12 @@ public interface ApiInterface {
     public void getBidding(@Field("userId") String user_id,
                            @Field("productId") String productId,
                            Callback<BidData> callback);
+
+
+    @FormUrlEncoded
+    @POST("/androidApp/Customer/getAwardBidList.php")
+   public void getAwardBidding(@Field("userId") String user_id,
+                               Callback<BidData> bidDataCallback);
+
+
 }

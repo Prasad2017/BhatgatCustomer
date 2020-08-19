@@ -81,7 +81,7 @@ public class ViewBiding extends Fragment {
                 public void success(BidData biddingResponse, Response response) {
                     if (biddingResponse.getSuccess().equalsIgnoreCase("true")) {
                         try {
-                          //  Log.d("size", biddingResponse.getOrderdata().size() + "");
+
                             mybiddingResponse = biddingResponse;
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -90,6 +90,7 @@ public class ViewBiding extends Fragment {
                             acceptsimpleListView.setAdapter(myOrdersAdapter);
                             myOrdersAdapter.notifyDataSetChanged();
                             acceptsimpleListView.setHasFixedSize(true);
+
                         } catch (Exception e) {
                           e.printStackTrace();
                         }
