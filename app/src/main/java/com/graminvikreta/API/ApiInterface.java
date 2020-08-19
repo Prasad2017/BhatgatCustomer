@@ -48,6 +48,7 @@ public interface ApiInterface {
     @POST("/androidApp/Customer/start_bid.php")
     public void startBidding(@Field("user_fk") String userId,
                              @Field("product_fk") String product_fk,
+                             @Field("vid") String vid,
                              @Field("bid_amount") String bid_amount,
                              Callback<StatusResponse> callback);
 
@@ -55,5 +56,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("/androidApp/Customer/getCustomerBidList.php")
-    public void getBidding(@Field("userId") String user_id, Callback<BidData> callback);
+    public void getBidding(@Field("userId") String user_id,
+                           @Field("productId") String productId,
+                           Callback<BidData> callback);
 }

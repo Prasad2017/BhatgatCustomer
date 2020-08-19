@@ -94,7 +94,7 @@ public class ProductDetail  extends Fragment {
     public static String ImagesUrl="http://graminvikreta.com/androidApp/Customer/getProductImages.php";
     public static String city="http://graminvikreta.com/androidApp/Customer/product_quantity.php";
     String[] city_id_pk, city_name;
-    String cityid,city_value;
+    String cityid,city_value, vid;
     AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
     String cart_id,total,lastmain_total;
     EditText quantity,quantitygrams;
@@ -265,7 +265,13 @@ public class ProductDetail  extends Fragment {
                 break;
 
             case R.id.viewBidding:
-                ((MainPage) getActivity()).loadFragment(new ViewBiding(), true);
+
+                ViewBiding viewBiding = new ViewBiding();
+                Bundle bundle = new Bundle();
+                bundle.putString("productId", ""+position);
+                viewBiding.setArguments(bundle);
+                ((MainPage) getActivity()).loadFragment(viewBiding, true);
+
                 break;
         }
 
@@ -301,7 +307,7 @@ public class ProductDetail  extends Fragment {
                     pDialog.setCancelable(false);
                     pDialog.show();
 
-                    Api.getClient().startBidding(MainPage.userId, "" + position, bid_amount.getText().toString().trim(), new Callback<StatusResponse>() {
+                    Api.getClient().startBidding(MainPage.userId, "" + position, vid, bid_amount.getText().toString().trim(), new Callback<StatusResponse>() {
                         @Override
                         public void success(StatusResponse statusResponse, Response response) {
 
@@ -597,6 +603,7 @@ public class ProductDetail  extends Fragment {
                         Log.e("product", product.getProduct_pk());
                         textViews.get(5).setText(product.getStock_status());
                         total = product.getProduct_final_price();
+                        vid = product.getVendor_id_fk();
                         Log.e("total", "" + total);
                         String image = String.valueOf(product.getProduct_image1());
                         String string = image.substring(1, image.length() - 1);

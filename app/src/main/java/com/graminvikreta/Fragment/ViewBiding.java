@@ -41,6 +41,7 @@ public class ViewBiding extends Fragment {
     public static SwipeRefreshLayout swipeRefreshLayout;
     MyBidingAdpter myOrdersAdapter;
     public static BidData mybiddingResponse;
+    String productId;
 
 
     @Override
@@ -48,6 +49,10 @@ public class ViewBiding extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_view_biding, container, false);
         ButterKnife.bind(this, view);
+
+        Bundle bundle = getArguments();
+        productId= bundle.getString("productId");
+
 
         return view;
     }
@@ -71,7 +76,7 @@ public class ViewBiding extends Fragment {
 
         try{
 
-            Api.getClient().getBidding(MainPage.userId, new Callback<BidData>() {
+            Api.getClient().getBidding(MainPage.userId, productId, new Callback<BidData>() {
                 @Override
                 public void success(BidData biddingResponse, Response response) {
                     if (biddingResponse.getSuccess().equalsIgnoreCase("true")) {

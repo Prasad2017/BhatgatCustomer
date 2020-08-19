@@ -27,6 +27,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.graminvikreta.Adapter.BidProductListAdapter;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -72,6 +73,7 @@ public class ProductList extends Fragment {
     @BindView(R.id.bottom_sheet)
     RelativeLayout layoutBottomSheet;
     BottomSheetBehavior sheetBehavior;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

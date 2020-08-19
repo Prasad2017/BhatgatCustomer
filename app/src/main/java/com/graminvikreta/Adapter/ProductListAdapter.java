@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.graminvikreta.Fragment.BidProduct;
 import com.squareup.picasso.Picasso;
 import com.graminvikreta.Activity.MainPage;
 import com.graminvikreta.Model.ProductData;
@@ -83,11 +84,12 @@ public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
             myHolder.productimage.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ProductDetail productDetail = new ProductDetail();
+            BidProduct bidProduct = new BidProduct();
             Bundle bundle = new Bundle();
-            bundle.putInt("position", product_pk);
-            productDetail.setArguments(bundle);
-            ((MainPage) context).loadFragment(productDetail, true);
+            bundle.putString("position", ""+product_pk);
+            Log.e("pos", ""+product_pk);
+            bidProduct.setArguments(bundle);
+            ((MainPage) context).loadFragment(bidProduct, true);
         }
     });
 }
