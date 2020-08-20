@@ -2,7 +2,7 @@ package com.graminvikreta.Model;
 
 public class Qdata {
 
-    String id, bid_id, vendor_id, bid_amount, full_name;
+    String id, bid_id, vendor_id, bid_amount, full_name, date;
 
     public String getFull_name() {
         return full_name;
@@ -36,4 +36,19 @@ public class Qdata {
         this.bid_amount = bid_amount;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
