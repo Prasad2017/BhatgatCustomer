@@ -29,6 +29,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.graminvikreta.Fragment.AwardBid;
+import com.graminvikreta.Fragment.MyHistory;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -219,10 +221,11 @@ public class MainPage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.category:
+                    case R.id.help:
                         loadFragment(new Home(),true);
                         break;
                     case R.id.order:
-                        loadFragment(new PastOrder(),true);
+                        loadFragment(new MyHistory(),true);
                         break;
                     case R.id.setting:
                         loadFragment(new MyProfile(),true);
@@ -242,9 +245,6 @@ public class MainPage extends AppCompatActivity {
                         break;
                     case R.id.term:
                         loadFragment(new TermsAndConditions(),true);
-                        break;
-                    case R.id.help:
-                        loadFragment(new Home(),true);
                         break;
                     case R.id.complaints:
                         loadFragment(new Complaints(),true);
@@ -269,7 +269,7 @@ public class MainPage extends AppCompatActivity {
                         loadFragment(new Home(),true);
                         break;
                     case R.id.whishlist:
-                        loadFragment(new Wishlist(),true);
+                        loadFragment(new AwardBid(),true);
                         break;
                 }
                 return true;
@@ -329,18 +329,18 @@ public class MainPage extends AppCompatActivity {
             listDataHeader.add("Category");
             listDataHeader.add("Past Order");
             listDataHeader.add("Profile Management");
-            listDataHeader.add("Save Card");
-            listDataHeader.add("Rate US");
+           // listDataHeader.add("Save Card");
+          //  listDataHeader.add("Rate US");
             listDataHeader.add("Share");
-            listDataHeader.add("Term & Conditions");
-            listDataHeader.add("Help & Support");
-            listDataHeader.add("Private Policy");
+           // listDataHeader.add("Term & Conditions");
+           // listDataHeader.add("Help & Support");
+           // listDataHeader.add("Private Policy");
 
 
             // Adding child data
             List<String> top250 = new ArrayList<String>();
             top250.add("My Profile");
-            top250.add("Wishlist");
+            top250.add("Award Order");
             top250.add("Save Address");
             top250.add("Change Password");
             top250.add("Logout");
