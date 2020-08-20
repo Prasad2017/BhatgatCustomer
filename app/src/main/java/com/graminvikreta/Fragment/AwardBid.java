@@ -105,7 +105,7 @@ public class AwardBid extends Fragment {
                         AllList data = response.body();
                         raisedOrderData =response.body().getGetdatas();
 
-                        if (raisedOrderData.size()==0){
+                        if (raisedOrderData==null){
                             defaultMessage.setVisibility(View.VISIBLE);
                             defaultMessage.setText("No Order Found");
                         }else {

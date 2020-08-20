@@ -72,9 +72,10 @@ public class MyHistory extends Fragment {
     public void onStart() {
         super.onStart();
         ((MainPage) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        MainPage.title.setText("Award Orders");
+        MainPage.title.setText("My Orders");
         MainPage.cart.setVisibility(View.GONE);
         MainPage.cartCount.setVisibility(View.GONE);
+        MainPage.progressBar.setVisibility(View.GONE);
         MainPage.logo.setVisibility(View.GONE);
         MainPage.title.setVisibility(View.VISIBLE);
         MainPage.search.setVisibility(View.GONE);
@@ -97,7 +98,7 @@ public class MyHistory extends Fragment {
                 AllList allList = response.body();
                 orderDataList = allList.getOrderDataList();
 
-                if (orderDataList.size()>0){
+                if (orderDataList!=null){
 
                     defaultMessage.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
@@ -106,7 +107,6 @@ public class MyHistory extends Fragment {
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(orderAdapter);
                     orderAdapter.notifyDataSetChanged();
-                    defaultMessage.setVisibility(View.GONE);
 
 
                 } else {
@@ -117,6 +117,8 @@ public class MyHistory extends Fragment {
 
             @Override
             public void onFailure(Call<AllList> call, Throwable t) {
+                defaultMessage.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
                 Log.e("orderError", ""+t.getMessage());
             }
         });

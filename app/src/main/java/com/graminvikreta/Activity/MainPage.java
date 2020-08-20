@@ -194,7 +194,7 @@ public class MainPage extends AppCompatActivity {
                 }else if ((listDataHeader.get(groupPosition)).equals("Category")){
                     loadFragment(new Category(),true);
                 }else if ((listDataHeader.get(groupPosition)).equals("Past Oder")){
-                    loadFragment(new PastOrder(),true);
+                    loadFragment(new MyHistory(),true);
                 }else if ((listDataHeader.get(groupPosition)).equals("Save Card")){
                     loadFragment(new Home(),true);
                 }else if ((listDataHeader.get(groupPosition)).equals("Rate US")){
@@ -351,11 +351,11 @@ public class MainPage extends AppCompatActivity {
             listDataChild.put(listDataHeader.get(1), null); // Header, Child data
             listDataChild.put(listDataHeader.get(2), top250); // Header, Child data
             listDataChild.put(listDataHeader.get(3), null); // Header, Child data
-            listDataChild.put(listDataHeader.get(4), null); // Header, Child data
-            listDataChild.put(listDataHeader.get(5), null); // Header, Child data
-            listDataChild.put(listDataHeader.get(6), null); // Header, Child data
-            listDataChild.put(listDataHeader.get(7), null); // Header, Child data
-            listDataChild.put(listDataHeader.get(8), null); // Header, Child data
+           // listDataChild.put(listDataHeader.get(4), null); // Header, Child data
+           // listDataChild.put(listDataHeader.get(5), null); // Header, Child data
+           // listDataChild.put(listDataHeader.get(6), null); // Header, Child data
+           // listDataChild.put(listDataHeader.get(7), null); // Header, Child data
+           // listDataChild.put(listDataHeader.get(8), null); // Header, Child data
           //  listDataChild.put(listDataHeader.get(1), nowShowing);
            // listDataChild.put(listDataHeader.get(2), comingSoon);
         }
